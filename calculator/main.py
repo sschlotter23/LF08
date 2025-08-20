@@ -24,7 +24,7 @@ class MainWindow(QMainWindow):
         layout.addWidget(calculateButton,0,3)
         calculateButton.clicked.connect(self.handle_calculate_button)
 
-        self.resultEdit = QLabel("test")
+        self.resultEdit = QLabel()
         layout.addWidget(self.resultEdit,1,2)
 
         widget = QWidget()
@@ -32,12 +32,8 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(widget)
 
     def handle_calculate_button(self):
-        print(self.numberEdit.text())
-        print(int(self.baseEdit.text()))
-        result = convert_num(int(self.numberEdit.text()),2)
-        print(result)
+        result = convert_num(int(self.numberEdit.text()),int(self.baseEdit.text()))
         self.resultEdit.setText(str(result))
-        print("hello")
 
 
 app = QApplication(sys.argv)
